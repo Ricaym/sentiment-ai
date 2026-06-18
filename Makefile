@@ -1,6 +1,5 @@
 IMAGE_NAME = sentiment-ai
 PORT = 8080
-PWD = aymeric
 
 .PHONY: build run test stop clean tag
 
@@ -12,7 +11,7 @@ run:
 
 test :
 	docker run --rm \
-	-v $(PWD):/app \
+	-v $(CURDIR):/app \
 	-w /app \
 	$(IMAGE_NAME):latest \
 	pytest tests/ -v --cov=src --cov-report=term-missing

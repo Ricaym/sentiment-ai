@@ -1,5 +1,6 @@
 IMAGE_NAME = sentiment-ai
 PORT = 8080
+PWD = aymeric
 
 .PHONY: build run test stop clean tag
 
@@ -11,10 +12,10 @@ run:
 
 test :
 	docker run --rm \
-		-v $(PWD):/app \
-		-w /app \
-		$(IMAGE_NAME):latest \
-		pytest tests/ -v --cov=src --cov-report=term-missing
+	-v $(PWD):/app \
+	-w /app \
+	$(IMAGE_NAME):latest \
+	pytest tests/ -v --cov=src --cov-report=term-missing
 
 stop :
 	docker compose down
@@ -24,5 +25,5 @@ clean :
 	docker rmi $(IMAGE_NAME):latest || true
 
 tag :
-git tag -a v0.1.0 -m " Initial SentimentAI release "
-git push origin v0.1.0
+	git tag -a v0.1.0 -m "Initial SentimentAI release"
+	git push origin v0.1.0

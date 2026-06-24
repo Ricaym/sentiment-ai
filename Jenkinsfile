@@ -25,7 +25,7 @@ pipeline {
         }
         stage ('Build & Test') {
             steps {
-                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG}."
+                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
                 sh '''
                     docker run --rm ${IMAGE_NAME}:${IMAGE_TAG} pytest tests/ -v --cov=src --cov-report=xml:coverage.xml --cov-report=term-missing --cov-fail-under=70
                 '''

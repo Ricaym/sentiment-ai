@@ -4,7 +4,7 @@ PORT = 8080
 .PHONY: build run test stop clean tag
 
 build:
-	docker build -t $(IMAGE_NAME):latest .
+	docker build -t $(IMAGE_NAME):latest.
 
 run:
 	docker compose up -d

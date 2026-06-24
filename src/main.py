@@ -6,12 +6,13 @@ app = FastAPI(title="SentimentAI", version=" 0.1.0 ")
 
 model = SentimentModel()
 
-@app.get ("/health")
-def health () :
+
+@app.get("/health")
+def health():
 	"""Endpoint de healthcheck utilisé par Docker et les load balancers."""
 	return {"status": "ok"}
 
-@app.post ("/predict", response_model=PredictionResponse)
+@app.post("/predict", response_model=PredictionResponse)
 def predict(request: PredictionRequest):
 	"""Analyse le sentiment du texte fourni et retourne un label + score."""
 	return model.predict(request.text)

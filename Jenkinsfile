@@ -33,7 +33,7 @@ pipeline {
 
                     # Lancer les tests en nommant le conteneur pour copier coverage.xml
                     set + e
-                    docker run -e CI=true --name test-runner ${IMAGE_NAME}:${IMAGE_TAG} pytest tests/ -v --cov=src --cov-report=xml:/tmp/coverage.xml --cov - report = term - missing --cov-fail-under=70 TEST_EXIT_CODE=$?
+                    docker run -e CI=true --name test-runner ${IMAGE_NAME}:${IMAGE_TAG} pytest tests/ -v --cov=src --cov-report=xml:/tmp/coverage.xml --cov-report=term-missing --cov-fail-under=70 TEST_EXIT_CODE=$?
                     set -e
 
                     # Copier coverage.xml depuis le conteneur vers le workspace

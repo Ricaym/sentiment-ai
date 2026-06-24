@@ -5,7 +5,7 @@ from src.model import SentimentModel
 app = FastAPI(title="SentimentAI", version=" 0.1.0 ")
 
 model = SentimentModel()
-# Commentaire test 4
+# Commentaire test 5
 
 
 @app.get("/health")

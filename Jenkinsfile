@@ -28,8 +28,8 @@ pipeline {
                 sh '''
                     docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
 
-                    # Supprimer un éventuel conteneur test - runner résiduel
-                    docker rm -f test - runner 2 >/ dev / null || true
+                    # Supprimer un éventuel conteneur test-runner résiduel
+                    docker rm -f test-runner 2>/dev/null || true
 
                     # Lancer les tests en nommant le conteneur pour copier coverage.xml
                     set +e

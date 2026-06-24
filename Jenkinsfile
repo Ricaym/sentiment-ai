@@ -32,7 +32,7 @@ pipeline {
                     docker rm -f test - runner 2 >/ dev / null || true
 
                     # Lancer les tests en nommant le conteneur pour copier coverage.xml
-                    set + e
+                    set +e
                     docker run -e CI=true --name test-runner ${IMAGE_NAME}:${IMAGE_TAG} pytest tests/ -v --cov=src --cov-report=xml:/tmp/coverage.xml --cov-report=term-missing --cov-fail-under=70 TEST_EXIT_CODE=$?
                     set -e
 

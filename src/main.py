@@ -9,10 +9,11 @@ model = SentimentModel()
 
 @app.get("/health")
 def health():
-	"""Endpoint de healthcheck utilisé par Docker et les load balancers."""
-	return {"status": "ok"}
+    """Endpoint de healthcheck utilisé par Docker et les load balancers."""
+    return {"status": "ok"}
+
 
 @app.post("/predict", response_model=PredictionResponse)
 def predict(request: PredictionRequest):
-	"""Analyse le sentiment du texte fourni et retourne un label + score."""
-	return model.predict(request.text)
+    """Analyse le sentiment du texte fourni et retourne un label + score."""
+    return model.predict(request.text)

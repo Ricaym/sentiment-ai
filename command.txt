@@ -1,0 +1,17 @@
+docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
+
+# Vérifier que Jenkins démarre correctement
+docker logs -f jenkins
+
+# Attendez la ligne : Jenkins is fully up and running
+# V é rifier que Jenkins peut acc é der à Docker
+docker exec -u jenkins jenkins docker ps
+# Si erreur " executable file not found " --> installer Docker dans le
+conteneur
+docker exec -u root jenkins bash -c "
+1
+Formation DevOps TP 2 - Jenkins Pipeline
+apt - get update -q &&
+apt - get install -y docker . io
+"
+docker exec -u jenkins jenkins docker ps

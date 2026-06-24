@@ -3,7 +3,7 @@ from typing import Literal
 
 
 class PredictionRequest(BaseModel):
-    text: str=Field(..., min_length=1, max_length=5000)
+    text: str = Field(..., min_length=1, max_length=5000)
 
 
 class PredictionResponse(BaseModel):

@@ -1,6 +1,6 @@
 class SentimentModel:
     def __init__(self):
-        print ("[SentimentModel] Modèle chargé")
+        print("[SentimentModel] Modèle chargé")
 
     def predict(self, text: str) -> dict:
         text_lower = text.lower()
